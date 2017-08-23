@@ -33,7 +33,7 @@
 
       <div class="col">
 
-        <div class="jobItems animated fadeInUp" ng-repeat="job in filterdShows = ( jobsList | orderBy: 'created_at':true| filter:searchTitle | filter:searchArea)" >
+        <div class="jobItems animated fadeInUp" ng-repeat="job in filterdShows = ( jobsList | orderBy: 'created_at':true| filter:searchTitle | filter:searchArea )" >
 
           <div class="search_result">
             <h5 class="title">
@@ -57,7 +57,7 @@
             </div>
 
             <ul class="biders">
-              <li ng-repeat="bid in job.bids" class="result_avatar">
+              <li ng-repeat="bid in job.bids | limitTo:4" class="result_avatar">
                 <img ng-src="{{bid.user_avatar}}" alt="">
 
               </li>
@@ -70,7 +70,6 @@
             <div class="text_centered">
               <strong>Posted | </strong> {{job.created_at | date }}
             </div>
-
 
 
           </div>
