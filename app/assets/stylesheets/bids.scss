@@ -1,0 +1,62 @@
+@import "colors";
+@import "fonts";
+
+.the_numbers {
+  width: 100%;
+}
+
+.notice_gray {
+  color: $color-distext;
+}
+
+.new_bid, .edit_bid {
+  label{
+    font-size: .8rem;
+    color: $color-distext;
+  }
+
+  #bid_note{
+    font-size: 1.1rem;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 100%;
+  }
+
+}
+
+
+
+.right-width-padding {
+  padding: 50px;
+  // background: red;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.btn-wide {
+  color: #ffffff;
+  background: #903aff;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  text-align: center;
+  padding: 12px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+
+.preview_content {
+  font-family: $font-sans;
+  font-size: 18px;
+  line-height: 1.3rem;
+  font-weight: 400;
+}
+
+.prev_text{
+  color: $color-distext;
+}

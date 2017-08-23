@@ -1,0 +1,46 @@
+@import 'colors';
+@import 'fonts';
+
+
+.cke_top, .cke_chrome, .cke_toolgroup, .cke_bottom {
+    background: none !important;
+    border: none !important;
+}
+
+.cke_top {
+    border-bottom: 2px solid $color-purple !important;
+}
+
+.cke_button_on {
+    background: transparent !important;
+}
+
+.cke_button_off {
+    border-bottom: 2px solid transparent !important;    
+    &:hover {
+        border-bottom: 2px solid $color-purple !important;
+        background: transparent !important;
+    }
+    &:focus {
+        background: transparent !important;
+    }
+    &:active {
+        background: transparent !important;
+    }
+}
+
+
+
+a.cke_combo_button {
+    border: none ;
+    border-bottom-color: 2px solid transparent !important;
+    border-radius: 3p;
+    box-shadow: none !important;
+    background: transparent !important;
+    background-image: 0px !important;
+    background-image: transparent !important;
+
+    &:hover {
+        border-color: $color-purple !important;
+    }
+}

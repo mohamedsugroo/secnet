@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AnyguardWEB</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Rubik|Titillium+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+  </head>
+
+  <body ng-app="myApp">
+
+    <%= render 'home/navbar' %>
+    <div class="page">
+      <%= yield %>
+    </div>
+    <%= render 'home/footer' %>
+
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+
+<ul class="biders">
+  <div class="bidders_text">
+      Bidders
+  </div>
+
+  <% @bids.each do |bid| %>
+    <li class="bider_avatar">
+      <%= image_tag bid.user_avatar %>
+    </li>
+  <% end %>
+  <li class="bider_avatar textSpacing purple_bg">
+    <%= @bids.size %>
+    <% if @bids.size > 8 %>
+      <%= @bids.size %>+
+    <% end %>
+  </li>
+</ul>
+
+<hr>

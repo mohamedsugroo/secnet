@@ -1,0 +1,63 @@
+@import "colors";
+@import "fonts";
+
+
+.footer {
+  // background: $color-purple;
+  width: 100%;
+  min-height: 100px;
+  margin-top: 100px;
+  padding-top: 30px;
+  color: $color-gray;
+  background: $color-bggray;
+
+
+  .text-align-left{
+    text-align: left !important;
+  }
+
+  .text-align-right{
+    text-align: right !important;
+  }
+
+  .flat{
+      ul {
+      padding: 0;
+      margin: 0;
+
+      li{
+        list-style: none;
+        display: inline;
+        margin-left: 5px;
+
+        a{
+          &:hover{
+            color: $color-purple;
+            border-color:  $color-purple;
+          }
+        }
+
+      }
+
+      a{
+        text-decoration: none;
+        color:inherit;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+
+  .text-alig-center {
+    text-align: center;
+  }
+
+  .cr-tag {
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .color-red {
+    color: $color-red;
+  }
+
+}

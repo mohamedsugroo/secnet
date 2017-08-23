@@ -1,0 +1,180 @@
+<%= simple_form_for(job) do |f| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+
+    <div class="col">
+
+      <div class="field">
+        <%= f.text_field :title, placeholder: "Job Title" %>
+      </div>
+
+      <div class="field">
+
+        <%= f.cktext_area :description %>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+
+          <div class="hour_glass">
+            <%= f.label :end_hour %>
+
+            <%= f.time_select :end_hour %>
+          </div>
+
+        </div>
+
+        <div class="col">
+          <div class="hour_glass">
+            <%= f.label :start_hour %>
+            <%= f.time_select :start_hour %>
+        </div>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+
+          <%= f.label :start_date %>
+          <%= f.text_field :start_date, class: "datepicker", placeholder: "MM / DD / YYYY" %>
+
+        </div>
+
+        <div class="col">
+
+          <%= f.label :end_date %>
+          <%= f.text_field :end_date, class: "datepicker", placeholder: "MM / DD / YYYY" %>
+          <!-- date_select  -->
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col">
+
+      <div class="field">
+        <%= f.label :hourly_rate %>
+        <%= f.number_field :hourly_rate, placeholder: "11.50", data: { 'ng-model' => 'hourly_rate' } %>
+        <p id="input_warning">Hourly rate can not be less than the national rate £7.50</p>
+      </div>
+
+
+      <div class="field">
+        <!-- <%= f.label :number_of_hourse %> -->
+        <label>Paid Hours</label>
+        <%= f.number_field :number_of_hourse, placeholder: "8.59", data: { 'ng-model' => 'paid_hours'} %>
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <div class="field">
+            <%= f.label :fixed_price %>
+            <%= f.check_box :fixed_price, class: "" %>
+            <br>
+            <label for="job_fixed_price" class="icon-toggle-on"></label>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="field">
+            <%= f.label :negotiable_price %>
+            <%= f.check_box :negotiable_price, class: "" %>
+            <br>
+            <label for="job_negotiable_price" class="icon-toggle-off"></label>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <hr>
+
+
+      <div class="hours_paid_calculation">
+        <div class="calculations">
+
+        <div class="row">
+
+          <div class="col">
+            <label class="">Hourly rate</label> <br>
+            <span id="hours_cal">{{hourly_rate | currency: "£"}}</span>
+          </div>
+
+          <div class="col">
+              <label>Paid Hour's</label> <br>
+              <span id="rates_cal">{{paid_hours }}</span>
+
+          </div>
+
+          <div class="col">
+            <label >Deposit</label> <br>
+            <span id="deposit_cal">{{hourly_rate * paid_hours * 0.10 | currency: "£"}}</span>
+
+          </div>
+
+
+
+        </div>
+
+
+        <div class="row">
+          <div class="total_cost col">
+            <label>Total</label> <br>
+            <span id="calculations_span">{{hourly_rate * paid_hours - hourly_rate * paid_hours * 0.10  | currency: "£"}} </span>
+          </div>
+
+          <div class="total_cost col">
+            <label>Total</label> <br>
+            <span id="calculations_span">{{hourly_rate * paid_hours | currency: "£"}} </span>
+
+            <span id="calculations_span" ng-show="hourly_rate * paid_hours < 0">
+              £0.00
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="actions">
+        <%= f.submit "Post Job", class: "btn-purple" %>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+<% end %>

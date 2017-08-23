@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+
+  <% @bids.each do |bid| %>
+    <div>
+      <%= bid.hourly_rate %>
+      <%= bid.total_rate %>
+      <%= bid.note %>
+      <%= bid.user.email %>
+      <%= bid.job.id %>
+      <% if user_signed_in? %>
+        <% if bid.user_id == current_user.id %>
+          <%= link_to 'edit', edit_job_bid_path(@job,bid) %>
+        <% end %>
+      <% end %>
+    </div>
+
+  <% end %>
+
+<% end %>

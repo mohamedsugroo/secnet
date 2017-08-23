@@ -1,0 +1,81 @@
+<%= form_for([@job, @bid]) do |f| %>
+  <% if bid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+
+      <ul>
+      <% bid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+
+  <div class="col">
+
+
+    <%= f.label :note %>
+    <%= f.cktext_area :note %>
+
+
+
+
+
+
+
+  </div>
+
+
+  <div class="col">
+
+      <% if !@job.fixed_price %>
+      
+      <div class="field">
+        <%= f.label :hourly_rate %><br>
+        <%= f.text_field :hourly_rate, maxlength:"5", data: { 'ng-model' => 'hourlyrate' } %>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col">
+          <label> Paid hours </label> <br>
+          <h5 id="bid_number_hours">
+            <%= @job.number_of_hourse %>
+          </h5>
+        </div>
+
+
+        <div class="col">
+          <label> Hourly Rate</label> <br>
+          <h5 id="h5_bid_hourly_rate">
+            {{hourlyrate}}
+          </h5>
+        </div>
+
+
+        <div class="col">
+          <%= f.label :total_rate %><br>
+          <%= f.text_field :total_rate, class: "hidden" %>
+          <h5 id="total_rate_output"></h5>
+        </div>
+
+      </div>
+
+      <% end %>
+
+
+      <div class="actions">
+      <%= f.submit "Submit A Proposal", class: "btn-wide" %>
+    </div>
+
+
+  </div>
+
+
+
+</div>
+
+<% end %>

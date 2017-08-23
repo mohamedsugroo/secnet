@@ -1,0 +1,43 @@
+<nav class="nav_bar customNavbar">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col navbar-text">
+        <a href="<%= root_path %>">
+          <h2 class="navbarbrand">
+            Any Guard
+          </h2>
+        </a>
+        
+      </div>
+
+
+      <div class="col navbar-text right-text">
+
+        <%= link_to "Jobs", jobs_path %> |
+        <%= link_to "Contractors", contractors_path %> |
+        <%= link_to "Post A Job", new_job_path %> |
+
+
+        <% if user_signed_in? %>
+          <%= link_to'Logout', destroy_user_session_path, {:method => :delete} %>
+        <% else %>
+          <button class="btn btn-outline-success" type="button">Main button</button>
+          <%= link_to'Login', sign_in_path  %>
+        <% end %>
+
+
+      </div>
+
+    </div>
+
+
+
+    <%#= form_tag jobs_path, method: 'get' do  %>
+      <%#= text_field_tag :search, params[:search] %>
+    <%# end %>
+  </div>
+
+</nav>

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  gender: MyString
+  dob: 2017-04-16
+  firstline_address: MyString
+  postcode: MyString
+  city: MyString
+  county: MyString
+  country: MyString
+  mobile: 
+  utr: 
+  contracts_id: MyString
+  right_to_work_uk: false
+  bio: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  gender: MyString
+  dob: 2017-04-16
+  firstline_address: MyString
+  postcode: MyString
+  city: MyString
+  county: MyString
+  country: MyString
+  mobile: 
+  utr: 
+  contracts_id: MyString
+  right_to_work_uk: false
+  bio: MyText

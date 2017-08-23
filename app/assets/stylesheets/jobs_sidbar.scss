@@ -1,0 +1,37 @@
+@import "colors";
+@import "fonts";
+
+
+.job_sidebar {
+  border: 1px solid $color-lightgray;
+  background: $color-bggray;
+  padding: 22px;
+}
+
+.itemCentered {
+  text-align: center;
+  padding: 16px;  
+  .btn-purple-h {
+    border-radius: 2px;
+  }
+}
+
+.textSpacing {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+
+}
+
+.purple_bg {
+  background: $color-purple;
+  color: $color-white;
+}
+
+.bidders_text{
+  list-style: none;
+  float: left;
+  padding: 15px;
+  margin-right: 20px;
+  color: gray
+}

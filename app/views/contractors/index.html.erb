@@ -1,0 +1,90 @@
+<div class="container" ng-controller="contractorsController">
+
+
+  <div class="contractorItems">
+
+    <div class="row">
+
+      <div class="col full_width">
+        <label class="labelSearchTags"> Who</label> <br>
+        <input type="search" ng-model="searchContractor.first_name" class="customSearchInput ng-pristine ng-untouched ng-valid ng-empty">
+        <label class="grayLabelSmal">
+          Full Name
+        </label>
+      </div>
+
+      <div class="col full_width">
+        <label class="labelSearchTags"> Where</label> <br>
+        <input type="search" ng-model="searchContractor.city" class="customSearchInput ng-pristine ng-untouched ng-valid ng-empty">
+        <label class="grayLabelSmal"> City </label>
+      </div>
+    </div>
+
+    <div class="fillters">
+      <!-- filters -->
+    </div>
+
+
+    <div class="row">
+
+
+      <div class="col">
+
+        <div class="profileItemsList animated fadeIn" ng-animate="'animate'" ng-repeat="person in filterdShows = ( contractors | orderBy: 'created_at':true| filter:searchContractor.first_name | filter:searchContractor.city)" >
+
+          <div class="itemTop">
+
+            <div class="row">
+              <div class="col text-left">
+                <span ng-if="person.right_to_work_uk == true">
+                  <span class="badge badge-success">Verified</span>
+                </span>
+
+                <span ng-if="person.right_to_work_uk == false">
+                  <span class="badge badge-warning">Pending</span>
+                </span>
+
+              </div>
+
+              <div class="col text-right">
+                <strong>{{person.preferred_hourly_rate | currency:"£"}}/hr</strong>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="itemCenter">
+
+            <div class="cover_avatar">
+              <img ng-src="{{person.avatar_medium}}" alt="">
+            </div>
+            <h5 class="personName">  {{person.full_name}} </h5>
+            <p class="personCity">{{person.city}}</p>
+          </div>
+          <div class="itemBottom">
+            <hr>
+            <a href="{{person.url}}">
+              <button type="button" class="btn-full-purple" >
+                VIEW PROFILE
+              </button>
+             </a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!-- End angular  -->
+  <hr>
+
+    <%= link_to 'New Contractor', new_contractor_path %>
+
+
+
+</div>

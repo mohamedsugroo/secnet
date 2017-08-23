@@ -1,0 +1,52 @@
+<div class="container theJob">
+<p id="notice"><%= notice %></p>
+  <div class="row">
+
+    <div class="col">
+
+
+      <h1><%= @job.title %></h1>
+      <%= render 'jobs/biderslist' %>
+      <div class="jobsDescription">
+        <%= @job.description.html_safe %>
+      </div>
+
+
+      <%#= render 'jobs/bids' %>
+
+
+
+      <div class="itemCentered">
+        <a href="<%= new_job_bid_path(@job) %>" class="btn-purple-h">
+          Submit a Proposal
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="col-4">
+
+
+      <div class="job_sidebar">
+        <%= link_to 'Edit', edit_job_path(@job) %> |
+        <%= link_to 'Back', jobs_path %>
+        <br>
+
+        <!-- <%= link_to 'Submit a proposal', new_job_bid_path(@job) %> -->
+        <strong><%= time_ago_in_words(@job.created_at, include_seconds: true) %></strong> <br>
+        <strong>Start Date</strong> <%= @job.start_date %> <br>
+        <strong>End Date</strong> <%= @job.end_date %> <br>
+        <strong>Hourly Rate</strong> <%= @job.hourly_rate %> <br>
+        <strong>Number Of Hourse</strong> <%= @job.number_of_hourse %> <br>
+        <strong>Fixed Price</strong> <%= @job.fixed_price %> <br>
+        <strong>Negotiable Price</strong> <%= @job.negotiable_price %>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,274 @@
+@import "colors";
+@import "fonts";
+
+// start page styles
+
+
+
+.theJob {
+
+  .jobsDescription {
+    padding: 1.3em;
+    padding-top: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    font-family: $font-ptserif;
+
+  }
+
+}
+
+
+
+// end of page styles
+
+.search_barr {
+  width: 100%;
+  padding: 12px;
+}
+
+.hours_paid_calculation{
+  .calculations {
+    font-size: 1.5rem;
+  }
+}
+
+input {
+  border-radius: 2px;
+  border: 1px solid $color-lightgray;
+
+  &:focus{
+    background: $color-bggray;
+    border-color:  $color-purple;
+    outline: none;
+  }
+
+}
+
+
+.datepicker-dropdown {
+  // border: 2px solid $color-purple;
+}
+
+
+.datepicker {
+  table {
+    tr {
+      td.day {
+        &:hover{
+          background: $color-purple !important;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+
+.datepicker-switch {
+  &:hover{
+    background: $color-purple !important;
+    color: $color-white;
+  }
+}
+
+.btn-purple {
+  color: $color-white;
+  background: $color-purple;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  max-width: 150px !important;
+  margin-top: 15px;
+  text-align: center;
+
+  &:hover{
+    background: $color-purplelight;
+  }
+}
+
+.new_job, .edit_job {
+  label{
+    font-size: .8rem;
+    color: $color-distext;
+  }
+
+  input{
+    font-size: 1.1rem;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 100%;
+  }
+
+
+  #job_title {
+    margin-top: 7px;
+  }
+
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+#job_end_hour_4i,
+#job_end_hour_5i,
+#job_start_hour_4i,
+#job_start_hour_5i{
+  background: none;
+  border: none;
+}
+
+.hour_glass {
+  padding: 6px;
+  // padding-left: 25px;
+  border-radius: 2px;
+  border: 1px solid $color-lightgray;
+  width: 100%;
+  text-align: center;
+
+  &:hover{
+    background: $color-bggray;
+    border-color:  $color-purple;
+    outline: none;
+  }
+}
+
+
+
+.with-small {
+
+  small {
+    font-size: 17px;
+  }
+}
+
+#hours_cal,
+#deposit_cal,
+#rates_cal{
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  font-family: $font-rubik !important;
+  word-break: break-all;
+}
+
+
+.total_cost {
+  word-break: break-all;
+}
+
+
+
+
+// switch icons
+
+#job_fixed_price, #job_negotiable_price{
+  display: none;
+}
+
+#job_fixed_price:checked ~ .icon-toggle-on,
+#job_negotiable_price:checked ~ .icon-toggle-off{
+  background-image: url('../icons/toggle-on.svg');
+}
+
+
+.icon-toggle-on {
+  background-image: url('../icons/toggle-off.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;
+  height: 20px;
+
+}
+
+
+.icon-toggle-off {
+  background-image: url('../icons/toggle-off.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;
+  height: 21px;
+}
+
+
+// text editor styling
+
+
+.fr-sr-only {
+  display: none;
+}
+
+
+
+
+.fr-btn {
+  float: left;
+  border: none;
+  background: $color-white;
+  border-bottom: 2px solid transperant;
+  color: $color-distext;
+
+  &:hover{
+    border-bottom: 2px solid $color-purple;
+    color: $color-purple;
+  }
+}
+
+
+.fr-active {
+  border-bottom: 2px solid $color-purple;
+  color: $color-purple;
+}
+
+
+.fr-toolbar {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+}
+
+.fr-element {
+  padding: 10px;
+  width: 100%;
+  min-height: 170px;
+  border-radius: 2px;
+  border: 1px solid $color-lightgray;
+  margin: 0;
+  margin-top: -30px;
+  margin-bottom: 10px;
+
+  &:focus{
+    background: $color-bggray;
+    border-color:  $color-purple;
+    outline: none;
+  }
+
+  p{
+    margin: 0;
+    padding: 0;
+  }
+
+
+}
+
+.fr-placeholder {
+  display: none;
+}
+
+.fr-tooltip {
+  position: absolute;
+  background: $color-lightgray;
+  padding: 5px;
+  font-style: 7px !important;
+  border-radius: 2px;
+}
+
+.fr-visible    {
+  font-style: 7px !important;
+
+}
+
+
+// list style

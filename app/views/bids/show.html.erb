@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="bids_ctlr" ng-controller="bidsController">
+    {{message}}
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <strong>Note:</strong>
+      <%= @bid.note.html_safe %>
+    </div>
+
+    <div class="col">
+      <p>
+      <strong>Hourly rate:</strong>
+      <%= @bid.hourly_rate %>
+
+      <strong>Total rate:</strong>
+      <%= @bid.total_rate %>
+
+      <%= @bid.user_avatar %>
+      <br>
+
+      <a href="<%= contractor_path (@bid.user_url) %>">
+        Profile
+      </a>
+
+      <br>
+
+
+
+      <strong>User:</strong>
+      <%= @bid.user.email %>
+
+      <strong>Job:</strong>
+      <%= @bid.job.id %>
+    </p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <%= link_to 'Edit', edit_job_bid_path(@bid) %> |
+  <%= link_to 'Back', job_bids_path %>
+
+</div>

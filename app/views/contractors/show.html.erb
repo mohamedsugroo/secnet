@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <%= @contractor.first_name %>
+        <%= @contractor.last_name %>
+        <%= @contractor.last_name %>
+        <%= @contractor.gender %>
+        <%= @contractor.dob %>
+        <%= @contractor.firstline_address %>
+        <%= @contractor.postcode %>
+        <%= @contractor.city %>
+        <%= @contractor.county %>
+        <%= @contractor.country %>
+        <%= @contractor.mobile %>
+        <%= @contractor.utr %>
+        <%= @contractor.contracts_id %>
+        <%= @contractor.right_to_work_uk %>
+        <%= @contractor.bio %>
+      </p>
+
+      <%= link_to 'Edit', edit_contractor_path(@contractor) %> |
+      <%= link_to 'Back', contractors_path %>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="col-3">
+
+  </div>
+
+
+  
+</div>
