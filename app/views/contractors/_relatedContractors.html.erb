@@ -1,0 +1,16 @@
+<div class="RecomedationContractors" ng-controller="contractorsController">
+  <label id="titleRec">Other Contractors in the area</label>
+  <div class="GuardsProfiles">
+
+    <ul class="biders" ng-repeat="bid contractors">
+      <li ng-repeat="bid in job.bids | limitTo:4" class="result_avatar">
+        <img ng-src="{{bid.user_avatar}}" alt="">
+      </li>
+      <li class="result_avatar resultTextSpacing purple_bg">
+        {{job.bid_size}}
+      </li>
+    </ul>
+
+
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="UserInfoShow">
+
+  <div class="userInfoTabs" >
+    <label>
+      <small>
+        Last Name
+      </small> <br>
+      <h5>
+        <%= @contractor.first_name + " " + @contractor.last_name %>
+      </h5>
+    </label>
+  </div>
+
+  <div class="userInfoTabs" >
+    <label>
+      <small>
+        Gender
+      </small> <br>
+      <h5>
+        <%= @contractor.gender %>
+      </h5>
+    </label>
+  </div>
+
+  <div class="userInfoTabs" >
+    <label>
+      <small>
+        City
+      </small> <br>
+      <h5>
+        <%= @contractor.city %>
+      </h5>
+    </label>
+  </div>
+
+  <%= render 'contractors/services_tab' %>
+
+</div>

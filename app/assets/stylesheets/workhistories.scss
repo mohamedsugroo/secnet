@@ -1,0 +1,88 @@
+.btn-round    {
+  border-radius: 25px;
+}
+
+
+.btn-glow-purple {
+  box-shadow: 0px 0px 30px 0px rgba(158, 83, 229, 0.3);
+}
+
+
+
+.btn-white {
+  // color: ;
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  max-width: 150px !important;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0px 0px 30px 0px rgba(134, 134, 134, 0.3);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.fullcoverModel {
+  background: rgba(0, 0, 0, 0.31);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3001;
+}
+
+.sideForum {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 20px;
+  padding-top: 20vh;
+  background: white;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.03);
+
+  .field {
+    input {
+      padding: 6px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+
+}
+
+.jumbotron {
+    padding: 1rem 2rem;
+    padding-top: 4rem;  
+    border-radius: 0.3rem;
+    // box-shadow: 0px 10px 50px -20px rgba(0, 0, 0, 0.36);
+}
+
+.datepicker {
+    padding: 6px !important;
+    border-radius: 4px !important;
+    direction: ltr !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
+.btn-purple {
+  color: white !important;
+}
+
+.btn-glow-purple {
+  &:hover {
+    box-shadow: 0px 0px 30px 0px rgba(158, 83, 229, 0.3) !important;
+  }
+}
+
+.text-align {
+  text-align: center;
+}

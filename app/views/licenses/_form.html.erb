@@ -1,0 +1,53 @@
+<%= simple_form_for(@license) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+
+    <div class="col">
+
+      <div class="form-inputs">
+        <div class="field">
+          <small>Note | dskjnfoasfadsasdnknfglkdfnlkdf </small> <br>
+          <%= f.file_field :photowithlicense %>
+        </div>
+
+        <div class="field">
+          <%= f.select :ltype,
+            [
+              'Cash and Valuable in Transit',
+              'Close Protection',
+              'Key holder',
+              'Security Guarding']
+           %>
+
+        </div>
+
+        <div class="field">
+          <%= f.text_field :lNumbe, placeholder: "license Number" %>
+        </div>
+
+        <div class="field">
+          <%= f.input :exdate, placeholder: "Experation Date" %>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="col">
+
+
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-purple btn-round" %>
+  </div>
+
+
+
+
+<% end %>

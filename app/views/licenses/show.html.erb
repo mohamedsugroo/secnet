@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ltype:</strong>
+  <%= @license.ltype %>
+</p>
+
+<p>
+  <strong>Lnumbe:</strong>
+  <%= @license.lNumbe %>
+</p>
+
+<p>
+  <strong>Exdate:</strong>
+  <%= @license.exdate %>
+</p>
+
+<%= link_to 'Edit', edit_license_path(@license) %> |
+<%= link_to 'Back', licenses_path %>

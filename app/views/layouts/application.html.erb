@@ -12,11 +12,17 @@
 
   <body ng-app="myApp">
 
+
     <%= render 'home/navbar' %>
     <div class="page">
       <%= yield %>
     </div>
+
+    <%= render 'home/signin' %>
     <%= render 'home/footer' %>
+
+    <h1> <%= @test %> </h1>
+
 
 
   </body>

@@ -100,11 +100,14 @@
             <label for="job_negotiable_price" class="icon-toggle-off"></label>
 
           </div>
+
         </div>
 
       </div>
 
-
+      <div class="field">
+        <input type="number" name="" placeholder="Number of guards" ng-model="numberofguards">
+      </div>
 
 
 
@@ -115,7 +118,15 @@
       <div class="hours_paid_calculation">
         <div class="calculations">
 
+          <div>
+            <label >
+              <strong>Cost Per guard</strong>
+            </label>
+          </div>
+
         <div class="row">
+
+
 
           <div class="col">
             <label class="">Hourly rate</label> <br>
@@ -129,9 +140,8 @@
           </div>
 
           <div class="col">
-            <label >Deposit</label> <br>
-            <span id="deposit_cal">{{hourly_rate * paid_hours * 0.10 | currency: "£"}}</span>
-
+            <label >Total Amount</label> <br>
+            <span id="calculations_span">{{hourly_rate * paid_hours | currency: "£"}} </span>
           </div>
 
 
@@ -141,19 +151,49 @@
 
         <div class="row">
           <div class="total_cost col">
-            <label>Total</label> <br>
-            <span id="calculations_span">{{hourly_rate * paid_hours - hourly_rate * paid_hours * 0.10  | currency: "£"}} </span>
+            <label>Number of grauds</label> <br>
+            <span id="calculations_span">{{ numberofguards }} </span>
           </div>
 
           <div class="total_cost col">
             <label>Total</label> <br>
-            <span id="calculations_span">{{hourly_rate * paid_hours | currency: "£"}} </span>
+            <span id="calculations_span">{{hourly_rate * paid_hours * numberofguards  | currency: "£"}} </span>
 
             <span id="calculations_span" ng-show="hourly_rate * paid_hours < 0">
               £0.00
             </span>
 
           </div>
+
+        </div>
+
+
+        <div class="">
+          <label>
+            <strong>
+               our fees
+            </strong>
+
+          </label>
+
+
+          <div class="row">
+
+            <div class="col">
+              {{ 2.65 + numberofguards * 0.99 | currency: "£"}}
+            </div>
+
+            <div class="col">
+              <label>
+                £0.99 per guard plus £2.65 for the job post
+              </label>
+
+            </div>
+
+          </div>
+
+
+
 
         </div>
 

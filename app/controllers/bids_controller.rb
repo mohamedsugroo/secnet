@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :set_job
 
   def show

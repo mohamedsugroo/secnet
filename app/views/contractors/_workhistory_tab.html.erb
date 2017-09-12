@@ -1,0 +1,124 @@
+<div class="tab-pane fade" id="workHistory" role="tabpanel" aria-labelledby="workhistory-tab">
+  <div class="conatiner">
+    <div class="ProfileBio">
+
+      <% if user_signed_in? %>
+          <div class="jumbotron">
+            <h4 class="">Work History</h4>
+            <p class="lead">
+              <% if @workhistories.exists? %>
+                Use the button below to add more work history.
+              <% else %>
+                you don't have a work history at the moment, <br>
+                please click the button below to add a work history.
+              <% end %>
+
+            </p>
+            <p class="lead">
+              <button type="button" class="btn btn-round btn-purple" id="toggleWorkHistory">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                New
+              </button>
+            </p>
+          </div>
+      <% end %>
+
+
+
+
+      <% if @workhistories.exists? %>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Comapny</th>
+            <th>Role</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @workhistories.each do |work| %>
+          <tr data-toggle="modal" data-target="#exampleModalLong<%= work.id %>">
+            <td><%= work.company_name %></td>
+            <td><%= work.your_role %></td>
+            <td><%= work.start_date %></td>
+            <td><%= work.end_date %></td>
+          </tr>
+
+          <!-- Modal -->
+
+          <div class="modal fade" id="exampleModalLong<%= work.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle<%= work.id %>" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle"><%= work.company_name %></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= work.note %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% end %>
+
+        </tbody>
+      </table>
+
+
+      <% else %>
+        <h2>NO</h2>
+      <% end %>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="fullcoverModel hidden animated fadeIn" id="fullcoverModel">
+
+<aside class="sideForum">
+  <div class="form-group">
+    <h2>Work History</h2>
+    <%#= form_for(:workhistory, :url => workhistory_path) do |f| %>
+    <%= simple_form_for(@work) do |f| %>
+      <%= f.hidden_field :contractor_id, :value => @contractor.id %>
+      <div class="field">
+        <%= f.text_field :company_name, class: "form-control", placeholder: "Company name" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :your_role, class: "form-control", placeholder: "Your Role"  %>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.text_field :start_date, class: "form-control datepicker", placeholder: "MM/DD/YYYY"  %>
+        </div>
+        <div class="col">
+          <%= f.text_field :end_date, class: "form-control datepicker", placeholder: "MM/DD/YYYY" %>
+        </div>
+      </div>
+      <br>
+      <%= f.text_area :note, class: "form-control" %>
+      <%= f.submit " Add Work History ", class: "btn btn-round btn-purple btn-glow-purple" %>
+      <button type="button" class="btn btn-round btn-white" id="toggleWorkHistoryTwo" >
+        Cancel
+      </button>
+
+    <% end %>
+
+  </div>
+</aside>
+
+
+</div>

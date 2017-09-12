@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820133409) do
+ActiveRecord::Schema.define(version: 20170911190533) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "hourly_rate"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20170820133409) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "discription"
+    t.string   "company_ref"
+    t.string   "company_token"
+    t.integer  "user_id"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "contractors", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -72,6 +85,30 @@ ActiveRecord::Schema.define(version: 20170820133409) do
     t.index ["user_id"], name: "index_contractors_on_user_id", unique: true
   end
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
+    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
+    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
+    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
+    t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -89,6 +126,20 @@ ActiveRecord::Schema.define(version: 20170820133409) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
+  create_table "licenses", force: :cascade do |t|
+    t.string   "ltype"
+    t.string   "lNumbe"
+    t.date     "exdate"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "contractor_id"
+    t.integer  "user_id"
+    t.string   "photowithlicense_file_name"
+    t.string   "photowithlicense_content_type"
+    t.integer  "photowithlicense_file_size"
+    t.datetime "photowithlicense_updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -104,6 +155,20 @@ ActiveRecord::Schema.define(version: 20170820133409) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "workhistories", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "your_role"
+    t.string   "start_date"
+    t.string   "end_date"
+    t.text     "note"
+    t.integer  "user_id"
+    t.integer  "contractor_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["contractor_id"], name: "index_workhistories_on_contractor_id"
+    t.index ["user_id"], name: "index_workhistories_on_user_id"
   end
 
 end

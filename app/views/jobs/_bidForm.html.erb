@@ -1,0 +1,88 @@
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Submit a Proposal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <%= form_for(:bid, :url => job_bid_path(@job.id, :bid)) do |f| %>
+      <div class="modal-body">
+
+
+        <% if !@job.fixed_price %>
+
+          <div class="important">
+            <%= f.label :jobs_id %>
+            <%= f.number_field :jobs_id, value: @job.id, type: "hidden" %>
+            <%= @job.id%>
+            <%= f.label :user_id %>
+            <%= current_user.id%>
+            <%= f.number_field :user_id, value: current_user.id, type: "hidden" %>
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <%= f.number_field :hourly_rate, class: "form-control", placeholder: "Hourly rate", data: { 'ng-model' => 'hourlyrate' } %>
+            </div>
+            <div class="col">
+              <%= f.number_field :total_rate, class: "form-control", placeholder: "Total rate", data: { 'ng-model' => 'total_rate' } %>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <label>Hourly Rate</label>
+              <h4> {{hourlyrate | currency: "£"}} </h4>
+            </div>
+
+            <div class="col">
+              <label>Total Hours</label>
+              <h4> {{hourlyrate | currency: "£"}} </h4>
+            </div>
+
+            <div class="col">
+              <label>Total amount</label>
+              <h4> {{hourlyrate | currency: "£"}} </h4>
+            </div>
+
+          </div>
+
+          <br>
+
+        <% end %>
+
+        <%= f.cktext_area :note %>
+
+
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Submit A Proposal", class: "btn-wide" %>
+
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $( "#bid_hourly_rate" ).change(function() {
+    var noh = <%= @job.number_of_hourse %>;
+    var bhr = $("#bid_hourly_rate").val();
+    // var noh = $("#number_of_hourse").val();
+    var btr = $("#bid_total_rate").val(noh * bhr);
+
+    console.log(noh * bhr);
+
+  });
+
+</script>

@@ -1,0 +1,116 @@
+<div class="col-4">
+  <div class="UserInfoShow">
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Posted
+        </small> <br>
+        <h5>
+          <%= time_ago_in_words(@job.created_at, include_seconds: true) %>
+        </h5>
+      </label>
+
+
+    </div>
+
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Start Date
+        </small> <br>
+        <h5>
+          <%= @job.start_date %>
+        </h5>
+      </label>
+    </div>
+
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          End Date
+        </small> <br>
+        <h5>
+          <%= @job.end_date %>
+        </h5>
+      </label>
+    </div>
+
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Number Of Hourse
+        </small> <br>
+        <h5>
+          <%= @job.number_of_hourse %>
+        </h5>
+      </label>
+    </div>
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Hourly Rate
+        </small> <br>
+        <h5>
+          £<%= @job.hourly_rate %>
+        </h5>
+      </label>
+    </div>
+
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Fixed Price
+        </small> <br>
+        <h5>
+          <% if @job.fixed_price? %>
+              Yes
+          <% else %>
+              NO
+          <% end %>
+        </h5>
+      </label>
+    </div>
+
+
+    <div class="userInfoTabs">
+      <label>
+        <small>
+          Negotiable Price
+        </small> <br>
+        <h5>
+          <% if @job.negotiable_price? %>
+              Yes
+          <% else %>
+              No
+          <% end %>
+        </h5>
+      </label>
+    </div>
+
+
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_job_path(@job) %> |
+      <%= link_to 'Back', jobs_path %>
+    <% end %>
+      <%= render "jobs/bidForm" %>
+
+      <hr class="my-4">
+
+      <div class="text-align">
+        <a data-toggle="modal" data-target="#exampleModal" class="btn-purple btn-round btn-glow btn-purple-h">
+          Submit a Proposal
+        </a>
+      </div>
+
+
+
+
+  </div>
+
+
+</div>

@@ -6,4 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create([{name: 'Door Supervision'},{name: 'CCTV Operator'},{name: 'Vehicle Immobilising'},{name: 'Security Guarding'},{name: 'Close Protection'},{name: 'Key Holding'},{name: 'Cash and Valuables in Transit'}])
+# Category.create([{name: 'Door Supervision'},{name: 'CCTV Operator'},{name: 'Vehicle Immobilising'},{name: 'Security Guarding'},{name: 'Close Protection'},{name: 'Key Holding'},{name: 'Cash and Valuables in Transit'}])
+
+
+Workhistory.create( user_id: 1, company_name: 'Nolo', your_role: 'Admin', note: 'bye')

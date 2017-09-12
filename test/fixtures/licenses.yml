@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ltype: MyString
+  lNumbe: MyString
+  exdate: 2017-09-11
+
+two:
+  ltype: MyString
+  lNumbe: MyString
+  exdate: 2017-09-11

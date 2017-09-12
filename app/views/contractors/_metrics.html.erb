@@ -1,0 +1,99 @@
+<div class="metrics">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-3">
+
+        <div class="MetricsAvatr">
+          <div class="theAvatarImage">
+            <%= image_tag @contractor.avatar_medium %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col">
+
+        <div class="UserInfo">
+          <%= @contractor.first_name + " " + @contractor.last_name  %>
+          <%= @all %>
+          <small>
+          </small>
+          <% if user_signed_in? %>
+            <% if current_user.id == @contractor.user_id %>
+              <a href="<%= edit_contractor_path(@contractor) %>">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </a>
+            <% end %>
+          <% end %>
+
+          <br>
+          <p id="metCity">
+            <span class="badge badge-danger">Pending Verification</span> |
+            <i class="fa fa-shield" aria-hidden="true"></i> SIA  |
+          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @contractor.city %> </p>
+
+          <br>
+
+          <div class="row">
+
+            <div class="col">
+              <span id="metCity">Total</span>
+              <br>0
+            </div>
+
+            <div class="col">
+              <span id="metCity">Applications</span>
+              <br><%= @contractor.user.bids.count %>
+            </div>
+
+            <div class="col">
+              <span id="metCity">Hired</span>
+              <br>0
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div class="metNav">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col">
+
+          <ul class="removeLinkStyles">
+            <a id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-expanded="true" class="active">
+              <li> Overview</li>
+            </a>
+            <a  id="workHistory-tab" data-toggle="tab" href="#workHistory" role="tab" aria-controls="workHistory" aria-expanded="true">
+              <li> Work History</li>
+            </a>
+            <a id="certification-tab" data-toggle="tab" href="#certification" role="tab" aria-controls="certification" aria-expanded="true">
+              <li> license & certifications</li>
+            </a>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>

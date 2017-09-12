@@ -13,7 +13,7 @@
 
 
 
-  <div class="row">
+  <div class="row" ng-controller="contractorsController">
     <div class="col">
 
       <div class="field">
@@ -49,7 +49,10 @@
 
       <div class="field">
         <%= f.label :postcode %>
-        <%= f.text_field :postcode %>
+        <%= f.text_field :postcode, class: "target" %>
+        <p>
+          <i class="fa fa-times" aria-hidden="true"></i> please enter a valid postcode
+        </p>
       </div>
 
       <div class="field">
@@ -72,7 +75,7 @@
     <div class="col">
       <div class="field">
         <%= f.label :mobile %>
-        <%= f.text_field :mobile %>
+        <%= f.number_field :mobile %>
       </div>
 
       <div class="field">
@@ -98,6 +101,7 @@
       <div class="field">
         <label> Cover Letter (Optional)</label>
         <%= f.cktext_area :bio %>
+
       </div>
 
 

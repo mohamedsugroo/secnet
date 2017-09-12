@@ -1,11 +1,16 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+
 
   def index
     @contractors = Contractor.all
   end
 
   def show
+    @work = Workhistory.new
+    @workhistories = Workhistory.where(contractor_id: @contractor.id)
+
   end
 
   def new

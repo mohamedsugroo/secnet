@@ -1,3 +1,60 @@
+<div class="navbar custom_navbar">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col">
+        <div class="branding">
+          <a href="<%= root_path%>">AnyGuard</a>
+        </div>
+
+        <ul class="nav_links">
+          <li><%= link_to "Jobs", jobs_path %></li>
+          <li><%= link_to "Contractors", contractors_path %></li>
+        </ul>
+      </div>
+
+      <div class="col">
+
+        <ul class="nav_links text-right">
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to'Logout', destroy_user_session_path, {:method => :delete} %>
+          </li>
+          <% else %>
+            <li>
+              <%#= link_to'Sign In', sign_in_path  %>
+              <a  data-toggle="modal" data-target="#exampleModal"> Sign in</a>
+            </li>
+            <li><a href="<%=  new_user_registration_path %>"> Sign Up</a></li>
+          <% end %>
+
+          <% if user_signed_in? %>
+
+          <a href="<%= profile_path%>">Profile</a>
+
+          <% end %>
+          <a href="<%= new_job_path %>">
+            <button  class="btn-purple-nav">
+              Post a Job
+            </button>
+
+          </a>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!--
 <nav class="nav_bar customNavbar">
 
   <div class="container">
@@ -10,7 +67,7 @@
             Any Guard
           </h2>
         </a>
-        
+
       </div>
 
 
@@ -40,4 +97,4 @@
     <%# end %>
   </div>
 
-</nav>
+</nav> -->
