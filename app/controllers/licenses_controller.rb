@@ -19,7 +19,7 @@ class LicensesController < ApplicationController
     @license.user_id = current_user.id
     respond_to do |format|
       if @license.save
-        format.html { redirect_to @license, notice: 'License was successfully created.' }
+        format.html { redirect_to contractor_path(@license.user_id), notice: 'License was successfully created.' }
         format.json { render :show, status: :created, location: @license }
       else
         format.html { render :new }
@@ -31,7 +31,7 @@ class LicensesController < ApplicationController
   def update
     respond_to do |format|
       if @license.update(license_params)
-        format.html { redirect_to @license, notice: 'License was successfully updated.' }
+        format.html { redirect_to contractor_path(@license.user_id), notice: 'License was successfully updated.' }
         format.json { render :show, status: :ok, location: @license }
       else
         format.html { render :edit }
@@ -43,7 +43,7 @@ class LicensesController < ApplicationController
   def destroy
     @license.destroy
     respond_to do |format|
-      format.html { redirect_to licenses_url, notice: 'License was successfully destroyed.' }
+      format.html { redirect_to contractor_path(@license.user_id), notice: 'License was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

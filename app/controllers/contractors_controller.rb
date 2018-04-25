@@ -9,7 +9,19 @@ class ContractorsController < ApplicationController
 
   def show
     @work = Workhistory.new
+    @lcq = License.new
+
+    @lcq.contractor_id = @contractor.id
+
+    @lcqs = License.where(user_id: @contractor.user_id).order("created_at DESC")
+
+
     @workhistories = Workhistory.where(contractor_id: @contractor.id)
+    @license = License.new
+    @licenses = License.where(contractor_id: @contractor.id)
+
+    @mertic_apps = "0" 
+    @bids = Bid.where(user_id: @contractor.contracts_id)
 
   end
 
@@ -23,7 +35,7 @@ class ContractorsController < ApplicationController
 
   def create
     @contractor = Contractor.new(contractor_params)
-    @contractor.user_id = current_user.id
+    @contractor.contracts_id = current_user.id
 
     respond_to do |format|
       if @contractor.save

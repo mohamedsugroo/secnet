@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911190533) do
+ActiveRecord::Schema.define(version: 20180425203554) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "hourly_rate"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170911190533) do
     t.time     "start_hour"
     t.time     "end_hour"
     t.integer  "user_id"
+    t.decimal  "number_of_guards"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 

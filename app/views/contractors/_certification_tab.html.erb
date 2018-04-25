@@ -1,6 +1,147 @@
 <div class="tab-pane fade" id="certification" role="tabpanel" aria-labelledby="certification-tab">
-  <h2>certification</h2>
-  <a href="<%= new_license_path %>" class="btn btn-round btn-purple"> New</a>
+  
 
+<div class="conatiner">
+    <div class="ProfileBio">
+
+	<% if user_signed_in? %>
+          <div class="jumbotron">
+
+          	
+            
+
+            <div class="row">
+          		<div class="col">
+
+          			<h4 class="">License</h4>
+          			<p class="lead">
+		              <% if @workhistories.exists? %>
+		                Use the button below to add a License.
+		              <% else %>
+		                you don't have any License or Certifications at the moment, <br>
+		                please click the button below to add a work history.
+		              <% end %>
+
+		            </p>
+		            <p class="lead">
+		              <button class="btn btn-round btn-purple" data-toggle="modal" data-target="#lcmodel">
+		              	<i class="fa fa-plus" aria-hidden="true"></i>
+		              	New
+					  </button>
+
+		            </p>
+          			
+          		</div>
+          		<div class="col">
+          			
+					<h4 class="">Certifications</h4>
+          			<p class="lead">
+		              <% if @workhistories.exists? %>
+		                Use the button below to add a Certification.
+		              <% else %>
+		                you don't have a Certification at the moment, <br>
+		                please click the button below to add a Certification.
+		              <% end %>
+
+		            </p>
+		            <p class="lead">
+		              <button class="btn btn-round btn-purple" data-toggle="modal" data-target="#lcmodel">
+		              	<i class="fa fa-plus" aria-hidden="true"></i>
+		              	New
+					  </button>
+
+		            </p>
+
+
+          		</div>
+          	</div>
+            
+          </div>
+    <% end %>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col">
+		<h5>LICENCE</h5>
+		<% @lcqs.each do |l|%>
+			<div class="cards_mist">
+				<h5><%= l.ltype %></h5>
+				<p>
+					Expiration date: <strong>
+						<%= l.exdate %>
+					</strong> <br>
+				</p>
+			</div>
+		<% end %>
+
+	</div>
+
+	<div class="col">
+		<h5>CERIFICATIONS</h5>
+		<div class="cards_mist">
+			<h5>hello</h5>
+			<p>
+				you don't have a Certification at
+			</p>
+		</div>
+	</div>
+</div>
+  
+
+  <div class="modal fade" id="lcmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">
+		        ADD LICENSE
+		    </h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+
+	      <%= simple_form_for(@lcq) do |f| %>
+			<div class="modal-body">
+
+				<div class="field">
+					<%= f.file_field :photowithlicense %>					
+				</div>
+				
+				<div class="field">
+					<%= f.select :ltype,
+					[
+						'Cash and Valuable in Transit',
+						'Close Protection',
+						'Key holder',
+						'Security Guarding'] , class: 'form-control'
+					%>
+				</div>
+
+				<div class="field">
+					<%= f.input :lNumbe, class: 'form-control', placeholder: "license Number" %>
+				</div>
+
+				<div class="field">
+					<%= f.input :exdate, class: 'form-control', placeholder: "Experation Date" %>
+				</div>
+
+
+			</div>
+
+			<div class="modal-footer">
+				<%= f.submit 'Save changes', class: "btn btn-round btn-purple" %>
+			</div>
+
+		  <% end %>
+
+
+	    </div>
+
+	  </div>
+	</div>
 
 </div>

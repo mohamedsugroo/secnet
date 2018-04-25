@@ -1,3 +1,40 @@
-// Place all the styles related to the licenses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.cards_mist {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    text-transform: capitalize;
+    box-shadow: 0px 10px 50px -20px rgba(0, 0, 0, 0.16);
+    border-left: 2px solid #c8d6e5;
+    cursor: pointer;
+    margin-bottom: 6px;
+    position: relative;
+
+    &:hover {
+    	border-color: #1dd1a1;
+    	// z-index: 1;
+    	&::before {
+		    border: 2px solid #1dd1a1;
+    	}
+    }
+
+    &:before {
+    	content: "";
+	    background-color: white;
+	    color: red;
+	    font-weight: bold;
+	    padding: 1px 18px 18px 1px;
+	    border: 2px solid #c8d6e5;
+	    border-radius: 100%;
+	    position: absolute;
+	    left: -13px;
+	    top: -6px;
+    }
+}
+
+
+.float-left-bottom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}

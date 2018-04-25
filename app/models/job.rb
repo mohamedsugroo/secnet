@@ -1,10 +1,14 @@
 class Job < ApplicationRecord
-  is_impressionable
+  is_impressionable 
   has_many :bids
   belongs_to :user
 
   def number_of_bids
     self.bids.size
+  end
+
+  def timer
+    Time.now
   end
 
   def impression_count

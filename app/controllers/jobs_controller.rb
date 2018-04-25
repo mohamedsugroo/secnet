@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  impressionist :actions=>[:show,:index]
+  impressionist :actions=>[:show]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
@@ -61,6 +61,6 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.require(:job).permit(:title, :description, :start_date, :end_date, :hourly_rate, :number_of_hourse, :fixed_price, :negotiable_price, :start_hour, :end_hour, :user_id)
+      params.require(:job).permit(:title, :description, :start_date, :end_date, :hourly_rate, :number_of_hourse, :fixed_price, :negotiable_price, :start_hour, :end_hour, :user_id, :number_of_guards)
     end
 end
