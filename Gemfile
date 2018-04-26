@@ -8,7 +8,7 @@ end
 
 gem 'rails', '~> 5.0.2'
 gem "puma"
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -38,13 +38,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'capistrano', '~> 3.7', '>= 3.7.1'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rbenv', '~> 2.1'
-  gem 'capistrano-local-precompile', '~> 1.1.1', require: false
-gem 'capistrano3-puma', github: "seuros/capistrano-puma"
-
   # gem 'unicorn'
 end
 

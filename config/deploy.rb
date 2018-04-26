@@ -9,4 +9,3 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
 set :deploy_to, '/home/deploy/sebki'
-

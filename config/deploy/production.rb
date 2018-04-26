@@ -1,4 +1,4 @@
-server "159.65.81.23", user: "deploy", roles: %w{app db web}
+server "206.189.25.86", user: "deploy", roles: %w{app db web}
 
 # server-based syntax
 # ======================
