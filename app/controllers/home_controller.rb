@@ -1,13 +1,12 @@
 class HomeController < ApplicationController
 
-	before_action :set_contractor
-
   def index
     if user_signed_in?
     end
 
 	if user_signed_in?
     	@contractors.count
+      @contractors = Contractor.where(user_id: current_user.id)
     	if @contractors.count > 0
     		redirect_to contractor_path(current_user.id)
     	else
@@ -20,6 +19,7 @@ class HomeController < ApplicationController
 
   def profile
     if user_signed_in?
+      @contractors = Contractor.where(user_id: current_user.id)
     	@contractors.count
     	if @contractors.count > 0
     		redirect_to contractor_path(current_user.id)
@@ -33,7 +33,7 @@ class HomeController < ApplicationController
   private
 
 	  def set_contractor
-	    @contractors = Contractor.where(user_id: current_user.id)
+      
 	  end
 
 end

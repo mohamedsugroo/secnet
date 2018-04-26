@@ -8,64 +8,69 @@
         </button>
       </div>
 
-      <%= form_for(:bid, :url => job_bid_path(@job.id, :bid)) do |f| %>
-      <div class="modal-body">
+      <% if user_signed_in? %>
+
+        <%= form_for(:bid, :url => job_bid_path(@job.id, :bid)) do |f| %>
+        <div class="modal-body">
 
 
-        <% if !@job.fixed_price %>
+          <% if !@job.fixed_price %>
 
-          <div class="important">
-            <%= f.label :jobs_id %>
-            <%= f.number_field :jobs_id, value: @job.id, type: "hidden" %>
-            <%= @job.id%>
-            <%= f.label :user_id %>
-            <%= current_user.id%>
-            <%= f.number_field :user_id, value: current_user.id, type: "hidden" %>
-          </div>
-
-          <div class="row">
-
-            <div class="col">
-              <%= f.number_field :hourly_rate, class: "form-control", placeholder: "Hourly rate", data: { 'ng-model' => 'hourlyrate' } %>
-            </div>
-            <div class="col">
-              <%= f.number_field :total_rate, class: "form-control", placeholder: "Total rate", data: { 'ng-model' => 'total_rate' } %>
-            </div>
-          </div>
-
-          <div class="row">
-
-            <div class="col">
-              <label>Hourly Rate</label>
-              <h4> {{hourlyrate | currency: "£"}} </h4>
+            <div class="important">
+              <%= f.label :jobs_id %>
+              <%= f.number_field :jobs_id, value: @job.id, type: "hidden" %>
+              <%= @job.id%>
+              <%= f.label :user_id %>
+              <%= current_user.id%>
+              <%= f.number_field :user_id, value: current_user.id, type: "hidden" %>
             </div>
 
-            <div class="col">
-              <label>Total Hours</label>
-              <h4> {{hourlyrate | currency: "£"}} </h4>
+            <div class="row">
+
+              <div class="col">
+                <%= f.number_field :hourly_rate, class: "form-control", placeholder: "Hourly rate", data: { 'ng-model' => 'hourlyrate' } %>
+              </div>
+              <div class="col">
+                <%= f.number_field :total_rate, class: "form-control", placeholder: "Total rate", data: { 'ng-model' => 'total_rate' } %>
+              </div>
             </div>
 
-            <div class="col">
-              <label>Total amount</label>
-              <h4> {{hourlyrate | currency: "£"}} </h4>
+            <div class="row">
+
+              <div class="col">
+                <label>Hourly Rate</label>
+                <h4> {{hourlyrate | currency: "£"}} </h4>
+              </div>
+
+              <div class="col">
+                <label>Total Hours</label>
+                <h4> {{hourlyrate | currency: "£"}} </h4>
+              </div>
+
+              <div class="col">
+                <label>Total amount</label>
+                <h4> {{hourlyrate | currency: "£"}} </h4>
+              </div>
+
             </div>
 
-          </div>
+            <br>
 
-          <br>
+          <% end %>
+
+          <%= f.cktext_area :note %>
+
+
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Submit A Proposal", class: "btn-wide" %>
+
+        </div>
 
         <% end %>
 
-        <%= f.cktext_area :note %>
-
-
-      </div>
-      <div class="modal-footer">
-        <%= f.submit "Submit A Proposal", class: "btn-wide" %>
-
-      </div>
-
       <% end %>
+
 
     </div>
   </div>
