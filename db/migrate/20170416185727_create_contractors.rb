@@ -10,8 +10,8 @@ class CreateContractors < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :county
       t.string :country
-      t.integer :mobile
-      t.integer :utr
+      t.string :mobile
+      t.string :utr
       t.string :contracts_id
       t.boolean :right_to_work_uk
       t.text :bio

@@ -111,7 +111,7 @@
 					<%= f.file_field :photowithlicense %>					
 				</div>
 				
-				<div class="field">
+				<div class="field ltype_cover">
 					<%= f.select :ltype,
 					[
 						'Cash and Valuable in Transit',
@@ -122,11 +122,12 @@
 				</div>
 
 				<div class="field">
-					<%= f.input :lNumbe, class: 'form-control', placeholder: "license Number" %>
+					<%= f.label :lNumbe, 'Licence Number'%>
+					<%= f.text_field :lNumbe, class: 'form-control', placeholder: "LICENCE NUMBER" %>
 				</div>
 
 				<div class="field">
-					<%= f.input :exdate, class: 'form-control', placeholder: "Experation Date" %>
+					<%= f.text_field :exdate, class: 'form-control datepicker', placeholder: "MM/DD/YYYY" %>
 				</div>
 
 

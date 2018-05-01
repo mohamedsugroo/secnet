@@ -1,17 +1,63 @@
 <div class="container">
 
   <div class="box_center">
+    
+    <div class="alert alert-warning" role="alert">
+      Please complete your sign up by creating a profile 
+    </div>
+
+    <div class="row">
+      <div class="col">
+
+        <div class="card p30">
+          <div class="card-body">
+            <h5 class="card-title">Personal Profile </h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+            <p class="card-text">
+              Creating a personal profile will give you the ability to bid on any given job. 
+              <br>
+              ( personal profile is suitable for security guards. please note by creating a personal profile you will not be able to post jobs )
+            </p>
+            <a href="<%= new_contractor_path %>" class="btn btn-round btn-purple">
+              Personal Profile
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+        
+
+        <div class="card p30">
+          <div class="card-body">
+            <h5 class="card-title">Company Profile</h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+            <p class="card-text">
+              Creating a company profile will give you the ability to post jobs
+              note company profile is suitable for companies who wish to post jobs only. Companies are not allowed to bid on jobs as the biding system is strictly for individual contractors
+            </p>
+
+            <a href="<%= new_contractor_path %>" class="btn btn-round btn-purple">
+              Company Profile
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
-    <div class="jumbotron">
-      <h1 class="display-3">Hello <%= current_user.email %></h1>
+    <!-- <div class="jumbotron">
+      <h1 class="display-3">Hello <%#= current_user.email %></h1>
       <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
       <p class="lead">
-        <a href="<%= new_contractor_path %>" class="btn btn-round btn-purple">
+        <a href="<%#= new_contractor_path %>" class="btn btn-round btn-purple">
           Create Profile
         </a>
       </p>
-    </div>
+    </div> -->
 
 
   </div>

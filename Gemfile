@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'angularjs-rails'
@@ -25,6 +25,8 @@ gem 'simple_form'
 gem 'country_select'
 gem 'paperclip'
 gem 'impressionist'
+gem 'ransack'
+
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development

@@ -1,4 +1,19 @@
 <div class="wrapper_search_box wrapperTextChange">
+
+
+<%= search_form_for (@q) do |f| %>
+
+  # Search if an associated articles.title starts with...
+  <%= f.label :title_con %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<% @results.each do |res| %>
+  <%= res.title %>
+<% end %>
+
   <div class="container">
 
     <div class="row">
@@ -33,48 +48,55 @@
 
       <div class="col">
 
-        <div class="jobItems animated fadeInUp" ng-repeat="job in filterdShows = ( jobsList | orderBy: 'created_at':true| filter:searchTitle | filter:searchArea )" >
+        
+        <% @results.each do |job| %>
+          <div class="jobItems animated fadeInUp"  >
 
-          <div class="search_result">
-            <h5 class="title">
-              <a href="{{job.url}}">
-                <strong>
-                  {{job.title}}
-                </strong>
-              </a>
-            </h5>
-            <div class="JobInfo">
-              <a href="#">Company Name</a> | <span>Location {{job.postcode}}</span> | <a href="#">{{job.number_of_bids}} bids</a>  | {{job.hourly_rate | currency:'£' }} phr
+            <div class="search_result">
+              <h5 class="title">
+                <a href="<%= job_path(job) %>">
+                  <strong>
+                    <%= job.title %>
+                  </strong>
+                </a>
+              </h5>
+              <div class="JobInfo">
+                <a href="#">Company Name</a> | <span>Location SW15 </span> | <a href="#">
+                  <%#= job.bid_size %> bids</a>  | <%#= job.hourly_rate %> | currency:'£'  phr
+              </div>
+
+              <p class="jobDescription">
+                <%= truncate(job.summary, length: 200) %>
+              </p>
+
+
+              <div class="text_centered">
+                <strong>Bidders </strong>
+              </div>
+
+              <ul class="biders">
+                <%= job.bids.each do |bid|%>
+                  <li  class="result_avatar">
+                    <img ng-src="<%= bid.user_avatar %>" alt="">
+
+                  </li>
+                <% end %>
+                <li class="result_avatar resultTextSpacing purple_bg">
+                  <%= job.bids.count %>
+                </li>
+
+              </ul>
+
+              <div class="text_centered">
+                <strong>Posted | </strong> <%= time_ago_in_words(job.created_at) %>
+              </div>
+
+
             </div>
-
-            <p class="jobDescription">
-              {{job.summary | htmlToPlaintext | limitTo:200}} ...
-            </p>
-
-
-            <div class="text_centered">
-              <strong>Bidders </strong>
-            </div>
-
-            <ul class="biders">
-              <li ng-repeat="bid in job.bids | limitTo:4" class="result_avatar">
-                <img ng-src="{{bid.user_avatar}}" alt="">
-
-              </li>
-              <li class="result_avatar resultTextSpacing purple_bg">
-                {{job.bid_size}}
-              </li>
-
-            </ul>
-
-            <div class="text_centered">
-              <strong>Posted | </strong> {{job.created_at | date }}
-            </div>
-
 
           </div>
 
-        </div>
+          <% end %>
 
       </div>
 

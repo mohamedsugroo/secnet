@@ -5,7 +5,9 @@ class HomeController < ApplicationController
     end
 
 	if user_signed_in?
-    	@contractors.count
+
+    # @contractors.count
+
       @contractors = Contractor.where(user_id: current_user.id)
     	if @contractors.count > 0
     		redirect_to contractor_path(current_user.id)

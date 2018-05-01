@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'jobs_search', to: 'search#jobs_search'
+
+  get 'contractor_search', to:'search#contractors_search'
+
   resources :licenses
   resources :workhistories
 

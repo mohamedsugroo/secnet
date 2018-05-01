@@ -19,19 +19,41 @@
         <ul class="nav_links text-right">
           <% if user_signed_in? %>
           <li>
-            <%= link_to'Logout', destroy_user_session_path, {:method => :delete} %>
+            Hello
           </li>
           <% else %>
             <li>
               <%#= link_to'Sign In', sign_in_path  %>
               <a  data-toggle="modal" data-target="#exampleModal"> Sign in</a>
             </li>
-            <li><a href="<%=  new_user_registration_path %>"> Sign Up</a></li>
+            <li><a href="<%= new_user_registration_path %>"> Sign Up</a></li>
           <% end %>
 
           <% if user_signed_in? %>
 
-          <a href="<%= profile_path%>">Profile</a>
+
+          <label class="dropdown">
+            <button class="profile_avatar btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+              <!-- Dropdown button -->
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              
+              <a class="dropdown-item" href="<%= profile_path%>">
+                Contractor Profile
+              </a>
+
+              <a class="dropdown-item" href="#">
+            Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <hr>
+
+              <li class="dropdown-item">
+                <%= link_to'Sign Out', destroy_user_session_path, {:method => :delete}  %>
+              </li>
+              
+
+            </div>
+          </label>
 
           <% end %>
           <a href="<%= new_job_path %>">

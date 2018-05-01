@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425203554) do
+ActiveRecord::Schema.define(version: 20180501114454) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "hourly_rate"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20180425203554) do
     t.string   "city"
     t.string   "county"
     t.string   "country"
-    t.integer  "mobile"
-    t.integer  "utr"
+    t.string   "mobile"
+    t.string   "utr"
     t.string   "contracts_id"
     t.boolean  "right_to_work_uk"
     t.text     "bio"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20180425203554) do
     t.time     "start_hour"
     t.time     "end_hour"
     t.integer  "user_id"
-    t.decimal  "number_of_guards"
+    t.string   "number_of_guards"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -139,6 +139,20 @@ ActiveRecord::Schema.define(version: 20180425203554) do
     t.string   "photowithlicense_content_type"
     t.integer  "photowithlicense_file_size"
     t.datetime "photowithlicense_updated_at"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "keyword"
+    t.string   "category"
+    t.string   "city"
+    t.string   "postcode"
+    t.decimal  "min_price"
+    t.decimal  "max_price"
+    t.string   "sector"
+    t.string   "licence_type"
+    t.string   "duration"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

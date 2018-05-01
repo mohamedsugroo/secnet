@@ -6,6 +6,10 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @bids = Bid.all
+
+    @q = Job.ransack(params[:q])
+    @results = @q.result(distinct: true)
+    
   end
 
   def show
