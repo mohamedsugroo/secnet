@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/plataformatec/devise
-  revision: d98f38cf5fbbd0e7395948eacaa8d5a4a7f7428c
-  specs:
-    devise (4.4.3)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
-      responders
-      warden (~> 1.2.3)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -90,6 +79,12 @@ GEM
     country_select (3.1.0)
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -306,7 +301,7 @@ DEPENDENCIES
   ckeditor (= 4.1.3)
   coffee-rails (~> 4.2)
   country_select
-  devise!
+  devise
   font-awesome-sass
   guard
   guard-livereload (~> 2.5)

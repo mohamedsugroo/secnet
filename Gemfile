@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'devise', git: 'https://github.com/plataformatec/devise'
+gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap-datepicker-rails'
 gem 'angularjs-rails'
