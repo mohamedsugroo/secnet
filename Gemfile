@@ -7,8 +7,9 @@ end
 
 
 gem 'rails', '~> 5.0.2'
-gem "passenger"
-gem 'pg', '~> 0.18.4'
+gem 'puma', '~> 3.7'
+gem 'sqlite3'
+# gem 'pg', '~> 0.18.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -17,7 +18,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'bootstrap-datepicker-rails'
 gem 'angularjs-rails'
 gem 'font-awesome-sass'
 gem 'ckeditor', '4.1.3'
@@ -37,15 +38,6 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-end
-
-group :development do
-  gem 'sqlite3'
-  gem 'capistrano', '~> 3.7', '>= 3.7.1'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-passenger', '~> 0.2.0'
-  gem 'capistrano-rbenv', '~> 2.1'
-  # gem 'unicorn'
 end
 
 
