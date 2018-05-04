@@ -8,8 +8,6 @@ end
 
 gem 'rails', '~> 5.0.2'
 gem 'puma', '~> 3.7'
-gem 'sqlite3'
-# gem 'pg', '~> 0.18.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -28,9 +26,6 @@ gem 'paperclip'
 gem 'impressionist'
 gem 'ransack'
 
-# gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
-# gem 'capistrano-rails', group: :development
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
@@ -40,8 +35,13 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+group :production do
+  gem 'pg', '~> 0.18.4'
+end
 
 group :development do
+  gem 'sqlite3'
+
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

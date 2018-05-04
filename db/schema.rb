@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501114454) do
+ActiveRecord::Schema.define(version: 20180504125328) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "hourly_rate"
@@ -118,12 +118,17 @@ ActiveRecord::Schema.define(version: 20180501114454) do
     t.integer  "number_of_hourse"
     t.boolean  "fixed_price"
     t.boolean  "negotiable_price"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.time     "start_hour"
     t.time     "end_hour"
     t.integer  "user_id"
     t.string   "number_of_guards"
+    t.string   "searbales_keywords"
+    t.string   "location"
+    t.string   "postcode"
+    t.string   "address"
+    t.string   "city"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -139,6 +144,13 @@ ActiveRecord::Schema.define(version: 20180501114454) do
     t.string   "photowithlicense_content_type"
     t.integer  "photowithlicense_file_size"
     t.datetime "photowithlicense_updated_at"
+  end
+
+  create_table "searchables", force: :cascade do |t|
+    t.string   "keyword"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|

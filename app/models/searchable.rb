@@ -1,0 +1,2 @@
+class Searchable < ApplicationRecord
+end

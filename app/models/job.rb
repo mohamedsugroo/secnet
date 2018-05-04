@@ -3,6 +3,14 @@ class Job < ApplicationRecord
   has_many :bids
   belongs_to :user
 
+  before_create :localizer
+
+
+  def localizer
+    self.location = "#{self.address},#{self.city},#{self.postcode}"
+  end
+    
+
   def number_of_bids
     self.bids.size
   end

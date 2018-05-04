@@ -19,14 +19,14 @@
         <%= f.text_field :title, placeholder: "Job Title" %>
       </div>
 
-      <div class="field">
+      <div class="field text_editor">
 
         <%= f.cktext_area :description %>
 
       </div>
 
 
-      <div class="row">
+      <div class="row the_hours">
         <div class="col">
 
           <div class="hour_glass">
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="col">
+        <div class="col ">
           <div class="hour_glass">
             <%= f.label :start_hour %>
             <%= f.time_select :start_hour %>
@@ -47,7 +47,7 @@
 
       </div>
 
-      <div class="row">
+      <div class="row the_dates">
         <div class="col">
 
           <%= f.label :start_date %>

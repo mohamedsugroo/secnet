@@ -1,0 +1,15 @@
+<div class="container"> 
+  
+  <% @searchables.each do |searchable| %>
+      <%= searchable.keyword %>
+      <%= searchable.location %>
+      <%= link_to 'Show', searchable %>
+      <%= link_to 'Edit', edit_searchable_path(searchable) %>
+      <%= link_to 'Destroy', searchable, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+
+  <%= link_to 'New Searchable', new_searchable_path %>
+
+
+</div>

@@ -1,0 +1,15 @@
+<div class="container"> 
+	<p>
+	  <strong>Keyword:</strong>
+	  <%= @searchable.keyword %>
+	</p>
+
+	<p>
+	  <strong>Location:</strong>
+	  <%= @searchable.location %>
+	</p>
+
+	<%= link_to 'Edit', edit_searchable_path(@searchable) %> |
+	<%= link_to 'Back', searchables_path %>
+
+</div>
