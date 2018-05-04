@@ -1,0 +1,11 @@
+@import 'colors';
+
+.home_search_btn {
+    padding: 12px;
+    background: $color-purple;
+    height: 100%;
+    margin: 0;
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    color: white;
+}
