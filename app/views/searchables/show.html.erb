@@ -1,15 +1,32 @@
-<div class="container"> 
-	<p>
-	  <strong>Keyword:</strong>
-	  <%= @searchable.keyword %>
-	</p>
+<br>
+<br>
 
-	<p>
-	  <strong>Location:</strong>
-	  <%= @searchable.location %>
-	</p>
+<div class="search_jobs">
+  <div class="container">
+    
+    <div class="row">
 
-	<%= link_to 'Edit', edit_searchable_path(@searchable) %> |
-	<%= link_to 'Back', searchables_path %>
+      <div class="col ">
+      	<%= @searchable.location %>
+		<%= @searchable.keyword %>
+       <%= render 'searchables/searchbox' %>
+      </div>
 
+      <div class="col-md-8">
+      	<%= render 'searchables/jobitems' %>
+      </div>
+
+    </div>
+
+  </div>
 </div>
+
+
+
+
+
+<style>
+  body {
+    background: #f3f4f8;
+  }
+</style>

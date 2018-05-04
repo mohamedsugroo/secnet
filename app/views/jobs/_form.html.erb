@@ -63,6 +63,21 @@
         </div>
       </div>
 
+      <hr>
+
+      <div class="field">
+        <%= f.input :address, placeholder: "First Line of Address" %>
+      </div>
+
+      <div class="field">
+        <%= f.input :city, placeholder: "City" %>
+      </div>
+
+      <div class="field">
+        <%= f.input :postcode, placeholder: "Postcode" %>
+      </div>
+
+
     </div>
 
 
@@ -106,7 +121,8 @@
       </div>
 
       <div class="field">
-        <%= f.input :number_of_guards, placeholder: "Number of guards", "ng-model":"numberofguards"%>
+        <%= f.input :number_of_guards, type: 'number', placeholder: "Number of guards", "ng-model":"numberofguards",  data: { 'ng-model': 'number_of_guards' } %>
+        {{number_of_guards}}
       </div>
 
 
@@ -152,12 +168,12 @@
         <div class="row">
           <div class="total_cost col">
             <label>Number of grauds</label> <br>
-            <span id="calculations_span">{{ numberofguards }} </span>
+            <span id="calculations_span">{{ number_of_guards }} </span>
           </div>
 
           <div class="total_cost col">
             <label>Total</label> <br>
-            <span id="calculations_span">{{hourly_rate * paid_hours * numberofguards  | currency: "£"}} </span>
+            <span id="calculations_span">{{hourly_rate * paid_hours * number_of_guards  | currency: "£"}} </span>
 
             <span id="calculations_span" ng-show="hourly_rate * paid_hours < 0">
               £0.00
@@ -166,39 +182,6 @@
           </div>
 
         </div>
-
-
-        <div class="">
-          <label>
-            <strong>
-               our fees
-            </strong>
-
-          </label>
-
-
-          <div class="row">
-
-            <div class="col">
-              {{ 2.65 + numberofguards * 0.99 | currency: "£"}}
-            </div>
-
-            <div class="col">
-              <label>
-                £0.99 per guard plus £2.65 for the job post
-              </label>
-
-            </div>
-
-          </div>
-
-
-
-
-        </div>
-
-
-
 
 
         </div>

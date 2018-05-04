@@ -1,15 +1,13 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  impressionist :actions=>[:show]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
     @jobs = Job.all
     @bids = Bid.all
 
-    @q = Job.ransack(params[:q])
-    @results = @q.result(distinct: true)
-    
+    @searchable = Searchable.new
+  
   end
 
   def show

@@ -1,0 +1,13 @@
+<div class="jobs_items">
+	<% @jobs.each do |job| %>
+		<a href="<%= job_path(job) %>">
+			<div class="job_item">
+				<h3 class="title"><%= job.title %></h3>
+				<label> <%= time_ago_in_words(job.created_at) %> | <%= job.city %></label>
+				<div class="job_summary">
+					<%= job.summary.html_safe %>
+				</div>
+			</div>
+		</a>
+	<% end %>
+</div>

@@ -1,30 +1,73 @@
-#job_title {
-	margin-bottom: 10px !important;
-}
-
-.text_editor {
-	margin-bottom: 12px;
-}
+@import 'scssfiles/colors';
 
 
+.jobs_items {
+    background: white;
 
-.the_hours {
-    padding: 0;
-    margin: 0;
+    a {
+        color: #384d57;
+    }
 
-    .col {
-    	padding: 0;
-    	margin: 0;
+    .job_item {
+        padding: 30px;
+        border-bottom: 1px solid #e4e4e4 !important;
+
+        &:hover {
+            border-left: 3px solid $color-purple;
+        }
+    }
+
+    .job_summary {
+        font-size:  0.9rem;
+        font-weight: 300;
+        color: #87939b;
+
+        p, strong, label {
+            font-size:  0.9rem;
+            font-weight: 300;
+            padding: 0;
+            margin: 0;
+        }
     }
 }
 
 
-.the_dates {
-    padding: 0;
-    margin: 0;
 
-    .col {
-    	padding: 0;
-    	margin: 0;
+.search_vender {
+    background: white;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.03);
+    padding: 30px;
+
+    label {
+        font-weight: 300;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        color: gray;
+    }
+
+    .form-single {
+        width: 100% !important;
+        border: 0px !important;
+        border-radius: 0px !important;
+        padding: 6px;
+        padding-left: 0;
+        padding-right: 0;
+        text-transform: capitalize;
+        border-bottom: 2px solid #f1f1f1f1 !important;
+        background: none !important;
+        color: gray;
+    }
+
+    .search_btn_round {
+        padding: 12px;
+        width: 100%;
+        border-radius: 30px;
+        margin-top: 30px;
+        background: $color-purple;
+        border: none;
+        color: white;
+        box-shadow: 0px 0px 13px 0px rgba(143, 58, 255, 0.27);
+        text-transform: uppercase;
     }
 }

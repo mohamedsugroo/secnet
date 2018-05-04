@@ -1,0 +1,78 @@
+
+
+<div class="wrapper_search_box wrapperTextChange">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col full_width">
+        <label class="labelSearchTags"> What</label> <br>
+        <input type="search" ng-model="searchTitle.title" class="customSearchInput">
+        <label class="grayLabelSmal">
+          Job title, keywords or company name
+        </label>
+      </div>
+
+      <div class="col full_width">
+        <label class="labelSearchTags"> Where</label> <br>
+        <input type="search" ng-model="searchArea.description" class="customSearchInput">
+        <label class="grayLabelSmal"> City </label>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<br>
+
+
+
+
+<div class="jobsList hidden" ng-controller="jobsController">
+
+  <div class="container"  ng-show='filterdShows.length > 0'>
+
+    <div class="row">
+
+      <div class="col">
+
+        <div class="jobItems animated fadeInUp" ng-repeat="job in filterdShows = ( jobsList | orderBy: 'created_at':true| filter:searchTitle | filter:searchArea)" >
+
+
+          <br>
+
+
+          <h5 class="title">
+            <a href="{{job.url}}">
+              <strong>
+                {{job.title}}
+              </strong>
+            </a>
+          </h5>
+          <div class="JobInfo">
+            <a href="#">Company Name</a> | <span>Location {{job.postcode}}</span> | <a href="#">{{job.number_of_bids}} bids</a>  | Hourly rate : {{job.hourly_rate | currency:'£' }}
+          </div>
+
+          <p class="jobDescription">
+            {{job.summary | htmlToPlaintext | limitTo:200}} ...
+          </p>
+          <span class="created_atJob"> {{job.created_at | date }} </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-4">
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>

@@ -25,7 +25,6 @@ gem 'simple_form'
 gem 'country_select'
 gem 'paperclip'
 gem 'impressionist'
-gem 'ransack'
 
 
 source 'https://rails-assets.org' do

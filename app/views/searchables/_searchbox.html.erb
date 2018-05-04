@@ -1,0 +1,39 @@
+ <div class="search_vender">
+          <div class="container">
+            <%= form_for (@searchable) do |f| %>
+              <label>Keyword </label>
+              <%= f.text_field :keyword, class: 'form-single' %>
+              <br> <br>
+              <label>Location </label>
+              <%= f.text_field :location, class: 'form-single' %>
+              <br> <br>
+
+              <label>Jop Type</label> <br>
+              <input type="text" class="form-single">
+              
+              <br> <br>
+
+              <label>hourly rate </label> <br>
+              <input type="text" class="form-single">
+
+              <br> <br>
+
+              <label>number of hourse</label> <br>
+              <input type="text" class="form-single">
+
+              <br> <br>
+
+              <label>fixed price</label> <br>
+              <input type="checkbox" class="fixed_price">
+
+              
+              
+
+
+              <button class="search_btn_round">
+                Search
+              </button>
+
+            <% end %>
+          </div>
+        </div>

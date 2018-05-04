@@ -1,9 +1,12 @@
 class Job < ApplicationRecord
   is_impressionable 
+  
   has_many :bids
   belongs_to :user
 
   before_create :localizer
+  before_update :localizer
+
 
 
   def localizer
