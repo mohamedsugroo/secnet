@@ -8,7 +8,7 @@ end
 
 gem 'rails', '~> 5.0.2'
 gem 'puma', '~> 3.7'
-gem 'pg'
+gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -26,14 +26,12 @@ gem 'country_select'
 gem 'paperclip'
 gem 'impressionist'
 
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
 end
 
 
